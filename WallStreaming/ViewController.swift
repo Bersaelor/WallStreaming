@@ -25,10 +25,10 @@ class ViewController: UIViewController {
         sceneView.delegate = self
         
         // Show statistics such as fps and timing information
-        sceneView.showsStatistics = true
+        sceneView.showsStatistics = false
         
         // debug scene to see feature points and world's origin
-        self.sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
+        self.sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
         
         // Create a new scene
         let scene = SCNScene()
@@ -48,11 +48,18 @@ class ViewController: UIViewController {
         sceneView.session.run(configuration)
     }
     
+    private var streamingURL: URL {
+        guard let urlFromSettings = UserDefaults.standard.string(forKey: "streaming_url"),
+            let url = URL(string: urlFromSettings) else {
+            return URL(string: "https://devstreaming-cdn.apple.com/videos/streaming/examples/img_bipbop_adv_example_fmp4/master.m3u8")!
+        }
+        return url
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        let streamURL = URL(string: "https://devstreaming-cdn.apple.com/videos/streaming/examples/img_bipbop_adv_example_fmp4/master.m3u8")!
-        videoPlayer = VideoPlayer(streamURL: streamURL)
+        videoPlayer = VideoPlayer(streamURL: streamingURL)
     }
     
     override func viewWillDisappear(_ animated: Bool) {

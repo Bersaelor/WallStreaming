@@ -17,6 +17,7 @@
 		719EFB4C2083B00800BACAD3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 719EFB4B2083B00800BACAD3 /* README.md */; };
 		719EFB4E2083B95200BACAD3 /* VideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EFB4D2083B95200BACAD3 /* VideoPlayer.swift */; };
 		719EFB502083BD7A00BACAD3 /* AVPlayer+Debugging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EFB4F2083BD7A00BACAD3 /* AVPlayer+Debugging.swift */; };
+		719EFB522083CE1900BACAD3 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 719EFB512083CE1900BACAD3 /* Settings.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		719EFB4B2083B00800BACAD3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		719EFB4D2083B95200BACAD3 /* VideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayer.swift; sourceTree = "<group>"; };
 		719EFB4F2083BD7A00BACAD3 /* AVPlayer+Debugging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AVPlayer+Debugging.swift"; sourceTree = "<group>"; };
+		719EFB512083CE1900BACAD3 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				719EFB392083A6A200BACAD3 /* Assets.xcassets */,
 				719EFB3B2083A6A200BACAD3 /* LaunchScreen.storyboard */,
 				719EFB3E2083A6A200BACAD3 /* Info.plist */,
+				719EFB512083CE1900BACAD3 /* Settings.bundle */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -158,6 +161,7 @@
 				719EFB3D2083A6A200BACAD3 /* LaunchScreen.storyboard in Resources */,
 				719EFB4C2083B00800BACAD3 /* README.md in Resources */,
 				719EFB3A2083A6A200BACAD3 /* Assets.xcassets in Resources */,
+				719EFB522083CE1900BACAD3 /* Settings.bundle in Resources */,
 				719EFB382083A6A100BACAD3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
