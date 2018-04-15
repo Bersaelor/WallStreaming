@@ -72,6 +72,7 @@ extension VideoPlayer {
     func playerItemFinished(_ notification: NSNotification) {
         print("Stream finished: \(notification)")
 
-        
+        player.seek(to: CMTime(seconds: 0, preferredTimescale: 1))
+        player.play()
     }
 }
