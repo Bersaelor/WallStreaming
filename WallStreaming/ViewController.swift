@@ -37,15 +37,12 @@ class ViewController: UIViewController {
         sceneView.scene = scene
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
+    /// - Tag: ARFaceTrackingSetup
+    func resetTracking() {
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
         configuration.planeDetection = .vertical
-
-        // Run the view's session
-        sceneView.session.run(configuration)
+        sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
     }
     
     private var streamingURL: URL {
@@ -60,6 +57,7 @@ class ViewController: UIViewController {
         super.viewDidAppear(animated)
         
         videoPlayer = VideoPlayer(streamURL: streamingURL)
+        resetTracking()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -79,6 +77,13 @@ class ViewController: UIViewController {
             self.videoPlayer?.play()
         }
     }
+
+    @IBAction func restartTapped(_ sender: UIButton) {
+        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
+        resetTracking()
+        streamStarted = false
+    }
+    
 }
 
 // MARK: - ARSCNViewDelegate
@@ -88,13 +93,14 @@ extension ViewController: ARSCNViewDelegate {
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         if let anchor = anchor as? ARPlaneAnchor {
             let wall = VirtualWall(anchor: anchor)
-            if let videoPlayer = videoPlayer {
-                wall.setMaterial(content: videoPlayer.scene)
-            }
             walls[anchor.identifier] = wall
             node.addChildNode(wall)
             
             if !streamStarted {
+                self.sceneView.debugOptions = []
+                if let videoPlayer = videoPlayer {
+                    wall.setMaterial(content: videoPlayer.scene)
+                }
                 streamStarted = true
                 startStream(in: 2)
             }
