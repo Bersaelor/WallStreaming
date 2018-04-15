@@ -13,6 +13,8 @@
 		719EFB382083A6A100BACAD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 719EFB362083A6A100BACAD3 /* Main.storyboard */; };
 		719EFB3A2083A6A200BACAD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 719EFB392083A6A200BACAD3 /* Assets.xcassets */; };
 		719EFB3D2083A6A200BACAD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 719EFB3B2083A6A200BACAD3 /* LaunchScreen.storyboard */; };
+		719EFB482083AB6700BACAD3 /* VirtualWall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EFB472083AB6700BACAD3 /* VirtualWall.swift */; };
+		719EFB4C2083B00800BACAD3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 719EFB4B2083B00800BACAD3 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		719EFB392083A6A200BACAD3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		719EFB3C2083A6A200BACAD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		719EFB3E2083A6A200BACAD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		719EFB472083AB6700BACAD3 /* VirtualWall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualWall.swift; sourceTree = "<group>"; };
+		719EFB4B2083B00800BACAD3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,7 +44,9 @@
 		719EFB242083A6A100BACAD3 = {
 			isa = PBXGroup;
 			children = (
+				719EFB4A2083AFEA00BACAD3 /* metaData */,
 				719EFB2F2083A6A100BACAD3 /* WallStreaming */,
+				719EFB442083AB0100BACAD3 /* Resources */,
 				719EFB2E2083A6A100BACAD3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -57,13 +63,30 @@
 			isa = PBXGroup;
 			children = (
 				719EFB302083A6A100BACAD3 /* AppDelegate.swift */,
-				719EFB322083A6A100BACAD3 /* art.scnassets */,
 				719EFB342083A6A100BACAD3 /* ViewController.swift */,
+				719EFB472083AB6700BACAD3 /* VirtualWall.swift */,
+			);
+			path = WallStreaming;
+			sourceTree = "<group>";
+		};
+		719EFB442083AB0100BACAD3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				719EFB362083A6A100BACAD3 /* Main.storyboard */,
+				719EFB322083A6A100BACAD3 /* art.scnassets */,
 				719EFB392083A6A200BACAD3 /* Assets.xcassets */,
 				719EFB3B2083A6A200BACAD3 /* LaunchScreen.storyboard */,
 				719EFB3E2083A6A200BACAD3 /* Info.plist */,
 			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		719EFB4A2083AFEA00BACAD3 /* metaData */ = {
+			isa = PBXGroup;
+			children = (
+				719EFB4B2083B00800BACAD3 /* README.md */,
+			);
+			name = metaData;
 			path = WallStreaming;
 			sourceTree = "<group>";
 		};
@@ -127,6 +150,7 @@
 			files = (
 				719EFB332083A6A100BACAD3 /* art.scnassets in Resources */,
 				719EFB3D2083A6A200BACAD3 /* LaunchScreen.storyboard in Resources */,
+				719EFB4C2083B00800BACAD3 /* README.md in Resources */,
 				719EFB3A2083A6A200BACAD3 /* Assets.xcassets in Resources */,
 				719EFB382083A6A100BACAD3 /* Main.storyboard in Resources */,
 			);
@@ -141,6 +165,7 @@
 			files = (
 				719EFB352083A6A100BACAD3 /* ViewController.swift in Sources */,
 				719EFB312083A6A100BACAD3 /* AppDelegate.swift in Sources */,
+				719EFB482083AB6700BACAD3 /* VirtualWall.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,7 +311,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H43Z4288RY;
-				INFOPLIST_FILE = WallStreaming/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,7 +329,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H43Z4288RY;
-				INFOPLIST_FILE = WallStreaming/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
