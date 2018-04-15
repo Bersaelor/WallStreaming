@@ -14,7 +14,9 @@ class ViewController: UIViewController {
 
     @IBOutlet var sceneView: ARSCNView!
     
+    var videoPlayer: VideoPlayer?
     var walls = [UUID: VirtualWall]()
+    var streamStarted: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +48,13 @@ class ViewController: UIViewController {
         sceneView.session.run(configuration)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let streamURL = URL(string: "https://devstreaming-cdn.apple.com/videos/streaming/examples/img_bipbop_adv_example_fmp4/master.m3u8")!
+        videoPlayer = VideoPlayer(streamURL: streamURL)
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
@@ -58,6 +67,11 @@ class ViewController: UIViewController {
         // Release any cached data, images, etc that aren't in use.
     }
 
+    private func startStream(in seconds: Double) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + seconds) {
+            self.videoPlayer?.startAsSoonAsPossible()
+        }
+    }
 }
 
 // MARK: - ARSCNViewDelegate
@@ -67,8 +81,16 @@ extension ViewController: ARSCNViewDelegate {
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         if let anchor = anchor as? ARPlaneAnchor {
             let wall = VirtualWall(anchor: anchor)
+            if let videoPlayer = videoPlayer {
+                wall.setMaterial(content: videoPlayer.scene)
+            }
             walls[anchor.identifier] = wall
             node.addChildNode(wall)
+            
+            if !streamStarted {
+                streamStarted = true
+                startStream(in: 2)
+            }
         }
     }
     

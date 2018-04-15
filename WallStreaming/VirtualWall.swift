@@ -23,7 +23,7 @@ class VirtualWall: SCNNode {
         
         super.init()
         
-        plane.firstMaterial = VirtualWall.makePlaneMaterial()
+        plane.firstMaterial = VirtualWall.makeDefaultPlaneMaterial()
         planeNode.position = SCNVector3(anchor.center.x, 0, anchor.center.z)
         planeNode.transform = SCNMatrix4MakeRotation(-Float.pi / 2.0, 1.0, 0.0, 0.0)
         
@@ -32,10 +32,10 @@ class VirtualWall: SCNNode {
         self.addChildNode(planeNode)
     }
     
-    private static func makePlaneMaterial() -> SCNMaterial {
-        let material = SCNMaterial()
-        material.diffuse.contents = UIColor.white.withAlphaComponent(0.50)
-        return material
+    func setMaterial(content: AnyObject?) {
+        guard let material = plane.materials.first else { return }
+
+        material.diffuse.contents = content
     }
     
     /// This method will update the plane when it changes.
@@ -51,14 +51,19 @@ class VirtualWall: SCNNode {
         updateMaterialDiffuseScale()
     }
     
+    private static func makeDefaultPlaneMaterial() -> SCNMaterial {
+        let material = SCNMaterial()
+        material.diffuse.contents = UIColor.white.withAlphaComponent(0.50)
+        return material
+    }
 
     /// Scale the diffuse component of the material
-    func updateMaterialDiffuseScale() {
+    private func updateMaterialDiffuseScale() {
         guard let material = plane.materials.first else { return }
         
-        let width = Float(self.plane.width)
-        let height = Float(self.plane.height)
-        material.diffuse.contentsTransform = SCNMatrix4MakeScale(width, height, 1.0)
+//        let width = Float(self.plane.width)
+//        let height = Float(self.plane.height)
+//        material.diffuse.contentsTransform = SCNMatrix4MakeScale(width, height, 1.0)
     }
     
     required init?(coder aDecoder: NSCoder) {
