@@ -16,7 +16,6 @@ class VideoPlayer: NSObject {
     private let videoNode: SKVideoNode
     private var playerStateObservation: NSKeyValueObservation?
     private var timeControlStateObservation: NSKeyValueObservation?
-    private var shouldStartAfterBuffering = false
 
     private(set) var playerStatus: AVPlayerTimeControlStatus = .paused {
         didSet {
@@ -46,12 +45,8 @@ class VideoPlayer: NSObject {
         timeControlStateObservation = player.observe(\.timeControlStatus) { (player, _) in
             self.playerStatus = player.timeControlStatus
         }
-        playerStateObservation = player.observe(\.status, changeHandler: { (player, change) in
+        playerStateObservation = player.observe(\.status, changeHandler: { (player, _) in
             print("player.status: \(player.status)")
-            if player.status == .readyToPlay && self.shouldStartAfterBuffering {
-                self.shouldStartAfterBuffering = false
-                player.play()
-            }
         })
         
         NotificationCenter.default.addObserver(self, selector: #selector(VideoPlayer.playerItemFinished(_:)),
@@ -64,13 +59,9 @@ class VideoPlayer: NSObject {
         playerStateObservation?.invalidate()
     }
     
-    func startAsSoonAsPossible() {
+    func play() {
         print("player.status before play: \(player.status)")
-        if player.status == .readyToPlay {
-            player.play()
-        } else {
-            shouldStartAfterBuffering = true
-        }
+        player.play()
     }
     
 }

@@ -76,7 +76,7 @@ class ViewController: UIViewController {
 
     private func startStream(in seconds: Double) {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + seconds) {
-            self.videoPlayer?.startAsSoonAsPossible()
+            self.videoPlayer?.play()
         }
     }
 }
