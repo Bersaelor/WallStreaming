@@ -53,10 +53,16 @@ class ViewController: UIViewController {
         return url
     }
     
+    private var localFileURL: URL {
+        return Bundle.main.url(forResource: "freeVideo", withExtension: "mp4")!
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        videoPlayer = VideoPlayer(streamURL: streamingURL)
+        // streaming from web servers can lead to long loading times, so for demo purposeses use
+//        videoPlayer = VideoPlayer(streamURL: streamingURL)
+        videoPlayer = VideoPlayer(streamURL: localFileURL)
         resetTracking()
     }
     

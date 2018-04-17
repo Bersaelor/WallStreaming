@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		719E577920865F6F00C60300 /* freeVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 719E577820865F6F00C60300 /* freeVideo.mp4 */; };
 		719EFB312083A6A100BACAD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EFB302083A6A100BACAD3 /* AppDelegate.swift */; };
 		719EFB332083A6A100BACAD3 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 719EFB322083A6A100BACAD3 /* art.scnassets */; };
 		719EFB352083A6A100BACAD3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EFB342083A6A100BACAD3 /* ViewController.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		719E577820865F6F00C60300 /* freeVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = freeVideo.mp4; sourceTree = "<group>"; };
 		719EFB2D2083A6A100BACAD3 /* WallStreaming.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WallStreaming.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		719EFB302083A6A100BACAD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		719EFB322083A6A100BACAD3 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 		719EFB442083AB0100BACAD3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				719E577820865F6F00C60300 /* freeVideo.mp4 */,
 				719EFB362083A6A100BACAD3 /* Main.storyboard */,
 				719EFB322083A6A100BACAD3 /* art.scnassets */,
 				719EFB392083A6A200BACAD3 /* Assets.xcassets */,
@@ -159,6 +162,7 @@
 			files = (
 				719EFB332083A6A100BACAD3 /* art.scnassets in Resources */,
 				719EFB3D2083A6A200BACAD3 /* LaunchScreen.storyboard in Resources */,
+				719E577920865F6F00C60300 /* freeVideo.mp4 in Resources */,
 				719EFB4C2083B00800BACAD3 /* README.md in Resources */,
 				719EFB3A2083A6A200BACAD3 /* Assets.xcassets in Resources */,
 				719EFB522083CE1900BACAD3 /* Settings.bundle in Resources */,
