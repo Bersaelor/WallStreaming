@@ -4,7 +4,7 @@ Small example demonstrating how to play a video on a wall using [ARKit](https://
 
  ![Video on the wall](exampleVideo.gif)
 
-This became possible since iOS 11.3 / ARKit "1.5" adding the `.vertical` option for the `.planeDetection` parameter of `ARWorldTrackingConfiguration`.
+This became possible when iOS 11.3 / ARKit "1.5" added the `.vertical` option for the `.planeDetection` parameter of `ARWorldTrackingConfiguration`.
 
 The only "trick" was to use `SpriteKit`'s `SKVideoNode` in an standard `SpriteKit` `SKScene`:
 
